@@ -5,16 +5,17 @@ on:
   pull_request:
     branches: [ master ]
 jobs: 
-    Create_bucket_ in_S3:
-      runs-on: ubuntu-latest
-      steps:
-          - name: Checkout
-            uses: actions/checkout@v2
-          - name: Create bucket in S3
-            uses: Timur-IT/aws-s3-create-bucket@v1.2.0
-             with:
-               bucket-name: 'my-unique-name-for-my-bucket'
-               aws-access-key-id: ${{ secrets.MY_AWS_ACCESS_KEY }}
-               aws-secret-access-key: ${{ secrets.MY_AWS_SECRET_KEY }}
-               aws-region: 'us-west-1'
-               acl: 'private'
+  create_bucket_in_S3:
+    runs-on: ubuntu-latest
+      
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+        - name: Create bucket in S3
+          uses: Timur-IT/aws-s3-create-bucket@v1.2.0
+          with:
+             bucket-name: 'my-unique-name-for-my-bucket'
+             aws-access-key-id: ${{ secrets.MY_AWS_ACCESS_KEY }}
+             aws-secret-access-key: ${{ secrets.MY_AWS_SECRET_KEY }}
+             aws-region: 'us-west-1'
+             acl: 'private'
