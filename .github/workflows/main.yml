@@ -1,24 +1,21 @@
-name: Deploy Container image to aws ECR
+name: Create bucket in S3
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
 jobs: 
-    aws_ecr_dockerfile_deploy:
+    Create bucket in S3:
         runs-on: ubuntu-latest
-        name: AWS ecr deploy- A job that deployys a image container using a aws_ecr_dockerfile_deploy
+        name: Create bucket in S3
         steps:
             - name: Checkout
               uses: actions/checkout@v2
-            - name: Deploy container image to AWS ECR
-              uses: Timur-IT/aws-ecr-deploy@v0.08
-              id: deploy 
-              with:
-                access_key_id: ${{ secrets.MY_AWS_ACCESS_KEY }}
-                secret_access_key: ${{ secrets.MY_AWS_SECRET_KEY }}
-                image_name: nginx
-                repo_uri: 822137640983.dkr.ecr.us-west-1.amazonaws.com/app-main:nginx
-
-            - name: Get the output status
-              run: echo "${{ steps.deploy.outputs.status }}"
+           - name: Create bucket in S3
+             uses: Timur-IT/aws-s3-create-bucket@v1.2.0
+               with:
+               bucket-name: 'my-unique-name-for-my-bucket'
+               aws-access-key-id: ${{ secrets.MY_AWS_ACCESS_KEY }}
+               aws-secret-access-key: ${{ secrets.MY_AWS_SECRET_KEY }}
+               aws-region: 'us-west-1'
+               acl: 'private'
