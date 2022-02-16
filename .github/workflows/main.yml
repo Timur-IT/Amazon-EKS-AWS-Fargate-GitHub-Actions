@@ -5,13 +5,13 @@ on:
   pull_request:
     branches: [ master ]
 jobs: 
-    Create bucket in S3:
+    Create_bucket_ in_S3:
         runs-on: ubuntu-latest
         name: Create bucket in S3
         steps:
             - name: Checkout
               uses: actions/checkout@v2
-           - name: Create bucket in S3
+           - name:  Create bucket in S3
              uses: Timur-IT/aws-s3-create-bucket@v1.2.0
                with:
                bucket-name: 'my-unique-name-for-my-bucket'
