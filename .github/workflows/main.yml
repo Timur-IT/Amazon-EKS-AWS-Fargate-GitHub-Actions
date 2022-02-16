@@ -7,7 +7,7 @@ on:
 jobs: 
     aws_ecr_dockerfile_deploy:
         runs-on: ubuntu-latest
-        name: AWS ecr deploy- A job that deploys a image container using a aws_ecr_dockerfile_deploy
+        name: AWS ecr deploy- A job that deployys a image container using a aws_ecr_dockerfile_deploy
         steps:
             - name: Checkout
               uses: actions/checkout@v2
