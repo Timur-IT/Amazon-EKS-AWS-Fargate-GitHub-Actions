@@ -1,4 +1,4 @@
-name: Create Amazon EKS on AWS Fargate
+name: Create Amazon EKS on AWSFargate
 
 
 on: 
