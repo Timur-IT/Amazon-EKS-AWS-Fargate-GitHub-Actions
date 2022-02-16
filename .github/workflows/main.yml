@@ -1,10 +1,10 @@
-name: Create Amazon EKS on AWSFargate
+name: Create Amazon EKS on AWS Fargate
 
 
 on: 
   push:
     branches: 
-      - master
+      - main
 
 jobs:
   create_cluster:
